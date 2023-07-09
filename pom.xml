@@ -37,13 +37,20 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Dependencia para Spring Security -->
+		<!-- Lombok data -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
-		<!-- Dependencias para json web token -->
+		<!-- json web token -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>

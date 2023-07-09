@@ -1,5 +1,7 @@
 package com.clouddevmind.Tasksproject.dao;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +15,5 @@ public interface UserDao extends CrudRepository<User, Long>{
      * @param userName
      * @return User
      */
-    public abstract User findByUserName(String userName);
+    Optional<User> findOneByUserName(String userName);
 }

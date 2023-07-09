@@ -1,6 +1,7 @@
 package com.clouddevmind.Tasksproject.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class UserService {
      * @param userName
      * @return User
      */
-    public User findByUsername(String username){
-        return this.userDao.findByUserName(username);
+    public Optional<User> findOneByUsername(String username){
+        return this.userDao.findOneByUserName(username);
     }
 }
