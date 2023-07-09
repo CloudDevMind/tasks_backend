@@ -1,5 +1,6 @@
 package com.clouddevmind.Tasksproject.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,9 +14,10 @@ public class User {
     //Auto generated value for class identity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    private String user_name;
+    private String userName;
     private String email;
     private String password;
 
@@ -28,11 +30,11 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
     public String getEmail() {
         return email;
@@ -52,6 +54,6 @@ public class User {
      */
     @Override
     public String toString() {
-        return "User [id=" + id + ", user_name=" + user_name + ", email=" + email + ", password=" + password + "]";
+        return "User [id=" + id + ", user_name=" + userName + ", email=" + email + ", password=" + password + "]";
     }
 }

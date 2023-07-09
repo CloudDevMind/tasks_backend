@@ -32,4 +32,13 @@ public class UserService {
     public User save(User user){
         return this.userDao.save(user);
     }
+
+    /**
+     * Finds a User using given property userName
+     * @param userName
+     * @return User
+     */
+    public User findByUsername(String username){
+        return this.userDao.findByUserName(username);
+    }
 }
