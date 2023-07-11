@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.clouddevmind.Tasksproject.dao.UserDao;
@@ -14,6 +15,9 @@ public class UserService {
 
     @Autowired
     protected UserDao userDao;
+    
+    //Encoder to save an encoded password
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     /**
      * Returns all resources from the given model
@@ -26,11 +30,12 @@ public class UserService {
 
 
     /**
-     * Saves a given user in the database
+     * Saves a given user in the database. It also encrypts the password
      * @param User user to store
      * @return user
      */
     public User save(User user){
+        user.setPassword(this.encoder.encode(user.getPassword()));
         return this.userDao.save(user);
     }
 
