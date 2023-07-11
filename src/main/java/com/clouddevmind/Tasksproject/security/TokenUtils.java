@@ -22,7 +22,7 @@ public class TokenUtils {
      * @param name
      * @return String
      */
-    public static String createToken(String name){
+    public static String createToken(String name, String email){
         //Defines the validity seconds in miliseconds by multiplying them
         long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1_000;
         //Creates the expiration date in miliseconds using Date() class from Java
@@ -32,7 +32,7 @@ public class TokenUtils {
         extraInfo.put("name", name);
 
         return Jwts.builder()
-                .setSubject(name)
+                .setSubject(email)
                 .setExpiration(expirationDate)
                 .addClaims(extraInfo)
                 .signWith(Keys.hmacShaKeyFor(ACCESS_TOKEN_SECRET.getBytes()))
@@ -47,9 +47,9 @@ public class TokenUtils {
                 .parseClaimsJws(token)
                 .getBody();
 
-            String userName = claims.getSubject();
+            String email = claims.getSubject();
 
-            return new UsernamePasswordAuthenticationToken(userName, null, Collections.emptyList());
+            return new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
 
         }catch(JwtException e){
             return null;

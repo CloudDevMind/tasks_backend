@@ -40,7 +40,7 @@ public class WebSecurityConfig {
         return http
                 .csrf().disable()
                 //Three liner: authorize any authenticated requests
-                .authorizeRequests()
+                .authorizeHttpRequests()
                 .anyRequest()
                 .authenticated()
                 //And config is http basic
@@ -104,7 +104,7 @@ public class WebSecurityConfig {
      * Run this if you need an encripted password, babes.
      * @param args
      */
-    /* public static void main(String[] args) {
-        System.out.println("password: " + new BCryptPasswordEncoder().encode("generic"));
-    } */
+    public static void main(String[] args) {
+        System.out.println(new BCryptPasswordEncoder().encode("camila"));
+    }
 }

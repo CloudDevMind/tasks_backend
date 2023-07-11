@@ -16,4 +16,11 @@ public interface UserDao extends CrudRepository<User, Long>{
      * @return User
      */
     Optional<User> findOneByUserName(String userName);
+
+    /**
+     * Finds a User using given property userName
+     * @param userName
+     * @return User
+     */
+    Optional<User> findOneByEmail(String email);
 }

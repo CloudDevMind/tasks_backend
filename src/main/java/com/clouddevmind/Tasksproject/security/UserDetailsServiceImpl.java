@@ -19,9 +19,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
      * Checks if a user exists in the database given its userName
      */
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userService
-                .findOneByUsername(username)
+                .findOneByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("The userName property was not found in the database"));
 
         return new UserDetailsImpl(user);

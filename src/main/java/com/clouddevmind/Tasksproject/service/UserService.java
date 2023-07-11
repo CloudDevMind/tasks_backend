@@ -42,4 +42,13 @@ public class UserService {
     public Optional<User> findOneByUsername(String username){
         return this.userDao.findOneByUserName(username);
     }
+
+    /**
+     * Finds a User using given property email
+     * @param email
+     * @return User
+     */
+    public Optional<User> findOneByEmail(String email){
+        return this.userDao.findOneByEmail(email);
+    }
 }
