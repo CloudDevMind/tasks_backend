@@ -20,7 +20,6 @@ public class TokenUtils {
     /**
      * Creates a JWT with its expiration time (30 days)
      * @param name
-     * @param email
      * @return String
      */
     public static String createToken(String name){
