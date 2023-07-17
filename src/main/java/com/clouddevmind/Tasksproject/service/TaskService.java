@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -34,5 +35,13 @@ public class TaskService {
 
     public Optional<ArrayList<Task>> listByStatus(String status){
         return this.taskDao.findAllByStatus(status);
+    }
+
+    public Optional<ArrayList<Task>> listByDueDate(Date date){
+        return this.taskDao.findAllByDueDate(date);
+    }
+
+    public Optional<ArrayList<Task>> listByPriority(String priority){
+        return this.taskDao.findAllByPriority(priority);
     }
 }

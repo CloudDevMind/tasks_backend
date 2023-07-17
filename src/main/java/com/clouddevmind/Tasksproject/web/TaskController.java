@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -29,5 +30,17 @@ public class TaskController {
 
     public Optional<ArrayList<Task>> listByStatus (@PathVariable("status") String status) {
         return this.taskService.listByStatus(status);
+    }
+
+    @GetMapping("/list/{priority}")
+
+    public Optional<ArrayList<Task>> listByPriority (@PathVariable("priority") String priority) {
+        return this.taskService.listByPriority(priority);
+    }
+
+    @GetMapping("/list/{date}")
+
+    public Optional<ArrayList<Task>> listByDueDate (@PathVariable("date") Date date) {
+        return this.taskService.listByDueDate(date);
     }
 }
